@@ -1,0 +1,73 @@
+﻿
+@model CodingTAL.ViewModel.HomeViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Premium Calculation</h1>    
+</div>
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { id = "HomeForm" }))
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-horizontal">
+                <div class="col-md-6">
+                    <div class="control-label col-md-3">
+                        <span>Customer Name:</span>
+                    </div>
+                    <div>
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @id = "TxtName", @tabindex = 1 })
+                    </div>
+                </div>
+                <div></div>
+                <div class="col-md-6">
+                    <div class="control-label col-md-3">
+                        <span>Customer Age:</span>
+                    </div>
+                    <div>
+                        @Html.TextBoxFor(m => m.Age, new { @class = "form-control datepicker", @id = "TxtAge", @tabindex = 2 })
+                    </div>
+                </div>
+                <div></div>
+                <div class="col-md-6">
+                    <div class="control-label col-md-3">
+                        <span>Date of Birth:</span>
+                    </div>
+                    <div>
+                        @Html.TextBoxFor(m => m.DOB, "{0:dd/MM/yy}", new { @class = "form-control datepicker", @id = "TxtDOB", @tabindex = 3 })
+                    </div>
+                </div>
+                <div></div>
+                <div class="col-md-6">
+                    <div class="control-label col-md-3">
+                        <span>Occupation:</span>
+                    </div>
+                    <div>
+                       @Html.DropDownListFor(m => m.OccupationValue, Model.Occupations, new { @class = "form-control", placeholder = "--Select Item--" })
+                    </div>
+                </div>
+                <div></div>
+                <div class="col-md-6">
+                    <div class="control-label col-md-3">
+                        <span>Sum Insured:</span>
+                    </div>
+                    <div>
+                        @Html.TextBoxFor(m => m.SumInsured, new { @class = "form-control", @id = "TxtSumInsured", @tabindex = 5 })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-12 col-xs-12 button-row">
+            <input type="submit" name="submit" id="Save" value="Save" class="btn width-20 btn-info pull-left" style="margin:0px 5px 5px 15px" />
+        </div>
+    </div>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js">
+    //    $("#Save").click(function(e)
+    //    {
+      
+
+    //});
+    </script>
+}
